@@ -1,5 +1,11 @@
 <script>
   import Modal from "./Modal.svelte";
+
+  let showModal = false;
+  const toggleModal = () => {
+    showModal = !showModal;
+  };
+
   let people = [
     { name: "John", beltcolor: "black", age: 30, id: 1 },
     { name: "Mario", beltcolor: "red", age: 20, id: 2 },
@@ -20,8 +26,14 @@
 {:else}
   <p>Not greater than 5 people</p>
 {/if} -->
-<Modal message="Hey, I am a prop value" isPromo={true} />
+<Modal
+  message="Hey, I am a prop value"
+  isPromo={true}
+  {showModal}
+  on:click={toggleModal}
+/>
 <main>
+  <button on:click={toggleModal}>open modal</button>
   {#each people as person (person.id)}
     <div>
       <h4>{person.name}</h4>
