@@ -1,30 +1,41 @@
 <script>
-	export let name;
+  let people = [
+    // { name: "John", beltcolor: "black", age: 30, id: 1 },
+    // { name: "Mario", beltcolor: "red", age: 20, id: 2 },
+    // { name: "luigi", beltcolor: "green", age: 20, id: 3 },
+  ];
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+  {#each people as person (person.id)}
+    <div>
+      <h2>{person.name}</h2>
+      <h4>{person.beltcolor} belt</h4>
+      <p>{person.age} years old</p>
+    </div>
+  {:else}
+    <p>No person is available</p>
+  {/each}
 </main>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
+  main {
+    text-align: center;
+    padding: 1em;
+    max-width: 240px;
+    margin: 0 auto;
+  }
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
+  h2 {
+    color: #ff3e00;
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: 100;
+  }
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+  @media (min-width: 640px) {
+    main {
+      max-width: none;
+    }
+  }
 </style>
