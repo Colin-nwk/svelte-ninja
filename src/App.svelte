@@ -33,7 +33,7 @@
   on:click={toggleModal}
 />
 <main>
-  <button on:click={toggleModal}>open modal</button>
+  <button on:click|once={toggleModal}>open modal</button>
   {#each people as person (person.id)}
     <div>
       <h4>{person.name}</h4>
